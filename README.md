@@ -1,4 +1,4 @@
-# projeto_af
+# Projeto AF
 
 Uma aplicação do tipo API Web RestFul que permita gerenciar reservas de veículos. A aplicação deverá permitir:
 
