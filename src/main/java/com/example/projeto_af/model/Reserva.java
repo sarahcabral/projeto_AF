@@ -1,19 +1,22 @@
 package com.example.projeto_af.model;
 
-import java.util.Date;
+import java.time.LocalDateTime;
+//import java.util.ArrayList;
 
+import com.fasterxml.jackson.annotation.JsonGetter;
 
 public class Reserva {
     private long codigo;
     private Cliente cliente;
     private Veiculo veiculo;
-    private Date dataInicio;
-    private Date dataEntrega;
+    private LocalDateTime dataInicio;
+    private LocalDateTime dataEntrega;
+ //   private ArrayList<Reserva> reservas = new ArrayList<Reserva>();
 
     public Reserva() {
     }
 
-    public Reserva(long codigo, Cliente cliente, Veiculo veiculo, Date dataInicio, Date dataEntrega) {
+    public Reserva(long codigo, Cliente cliente, Veiculo veiculo, LocalDateTime dataInicio, LocalDateTime dataEntrega) {
         this.codigo = codigo;
         this.cliente = cliente;
         this.veiculo = veiculo;
@@ -45,20 +48,26 @@ public class Reserva {
         this.veiculo = veiculo;
     }
 
-    public Date getDataInicio() {
+    public LocalDateTime getDataInicio() {
         return dataInicio;
     }
 
-    public void setDataInicio(Date dataInicio) {
+    public void setDataInicio(LocalDateTime dataInicio) {
         this.dataInicio = dataInicio;
     }
 
-    public Date getDataEntrega() {
+    public LocalDateTime getDataEntrega() {
         return dataEntrega;
     }
 
-    public void setDataEntrega(Date dataEntrega) {
+    public void setDataEntrega(LocalDateTime dataEntrega) {
         this.dataEntrega = dataEntrega;
+    }
+
+    @JsonGetter
+    public static double totalReserva(Veiculo veiculo, LocalDateTime inicio, LocalDateTime fim) {
+        double soma = veiculo.getValorDiaria()*(fim.compareTo(inicio));
+        return soma;
     }
 
     @Override
@@ -91,4 +100,6 @@ public class Reserva {
     
 }
 */
+
+
 }
