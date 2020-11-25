@@ -66,4 +66,29 @@ public class Reserva {
         return "Reserva [cliente=" + cliente + ", codigo=" + codigo + ", dataEntrega=" + dataEntrega + ", dataInicio="
                 + dataInicio + ", veiculo=" + veiculo + "]";
     }
+/* Json
+    "dataPedido": "20/11/2020@10:00:01",
+    "dataEntrega": "20/12/2020",
+{
+    "descricao": "Pedido 2",
+     "dataPedido": "20/11/2020@10:00:01",
+    "dataEntrega": "20/12/2020",
+    "itens" : [
+            {
+                 "numero": 1,
+                 "quantidade": 2,
+                 "produto": "produto 1",
+                 "precoUnitario": 100.50
+            },
+            {
+                 "numero": 2,
+                 "quantidade": 2,
+                 "produto": "produto 2",
+                 "precoUnitario": 200.50
+            }
+
+    ]
+    
+}
+*/
 }
