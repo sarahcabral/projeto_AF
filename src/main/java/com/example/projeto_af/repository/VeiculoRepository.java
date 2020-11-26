@@ -27,27 +27,27 @@ public class VeiculoRepository {
     }
 
 //Salva o veiculo introduzindo o id automaticamente
-    public Veiculo salvar(Veiculo veiculo) {
-        veiculo.setCodigo(nextcod++);
-        veiculos.add(veiculo);
-        return veiculo;
-    }
+public Veiculo salvar(Veiculo veiculo) {
+    veiculo.setCodigo(nextcod++);
+    veiculos.add(veiculo);
+    return veiculo;
+}
 
 //Faz update de um veiculo, possivelmente atualizando seu modelo ou valor diario
-    public Veiculo update(Veiculo veiculo) {
-        Veiculo aux = getVeiculoByCodigo(veiculo.getCodigo()).get();
-        if(aux != null)
-        {
-            aux.setModelo(veiculo.getModelo());
-            aux.setValorDiaria(veiculo.getValorDiaria());
-        }
-        return aux;
+public Veiculo update(Veiculo veiculo) {
+    Veiculo aux = getVeiculoByCodigo(veiculo.getCodigo()).get();
+    if(aux != null)
+    {
+        aux.setModelo(veiculo.getModelo());
+        aux.setValorDiaria(veiculo.getValorDiaria());
     }
+    return aux;
+}
 
 //Remove um veiculo
-    public void remove(Veiculo veiculo)
-    {
-        veiculos.remove(veiculo);
-    }
+public void remove(Veiculo veiculo)
+{
+    veiculos.remove(veiculo);
+}
 }
 

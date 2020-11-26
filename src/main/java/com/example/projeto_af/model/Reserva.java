@@ -6,11 +6,11 @@ import java.time.LocalDateTime;
 import com.fasterxml.jackson.annotation.JsonGetter;
 
 public class Reserva {
-    private long codigo;
-    private Cliente cliente;
-    private Veiculo veiculo;
-    private LocalDateTime dataInicio;
-    private LocalDateTime dataEntrega;
+    private long            codigo;
+    private Cliente         cliente;
+    private Veiculo         veiculo;
+    private LocalDateTime   dataInicio;
+    private LocalDateTime   dataEntrega;
  //   private ArrayList<Reserva> reservas = new ArrayList<Reserva>();
 
     public Reserva() {

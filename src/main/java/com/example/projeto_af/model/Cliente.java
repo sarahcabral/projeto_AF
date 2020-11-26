@@ -16,11 +16,14 @@ public class Cliente {
     public Cliente() {
     }
 
-    public Cliente(long codigo, String nome, String endereco, int cpf) {
+    public Cliente(long codigo, int cpf) {
         this.codigo = codigo;
+        this.cpf = cpf;
+    }
+
+    public Cliente(String nome, String endereco) {
         this.nome = nome;
         this.endereco = endereco;
-        this.cpf = cpf;
     }
 
     public long getCodigo() {
