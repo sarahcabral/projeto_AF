@@ -2,7 +2,6 @@ package com.example.projeto_af.repository;
 
 import java.util.ArrayList;
 import java.util.Optional;
-
 import com.example.projeto_af.model.Cliente;
 
 public class ClienteRepository {
@@ -42,7 +41,6 @@ public class ClienteRepository {
         }
         return aux;
     }
-
 
 //Remove um cliente
     public void remove(Cliente cliente)

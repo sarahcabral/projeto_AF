@@ -2,13 +2,12 @@ package com.example.projeto_af.repository;
 
 import java.util.ArrayList;
 import java.util.Optional;
-
 import com.example.projeto_af.model.Veiculo;
 
 
 public class VeiculoRepository {
     
-    private int nextcod = 1;
+    private long nextcod = 1;
     private ArrayList<Veiculo> veiculos = new ArrayList<Veiculo>();
 
 
@@ -27,27 +26,27 @@ public class VeiculoRepository {
     }
 
 //Salva o veiculo introduzindo o id automaticamente
-public Veiculo salvar(Veiculo veiculo) {
-    veiculo.setCodigo(nextcod++);
-    veiculos.add(veiculo);
-    return veiculo;
-}
+    public Veiculo salvar(Veiculo veiculo) {
+        veiculo.setCodigo(nextcod++);
+        veiculos.add(veiculo);
+        return veiculo;
+    }
 
 //Faz update de um veiculo, possivelmente atualizando seu modelo ou valor diario
-public Veiculo update(Veiculo veiculo) {
-    Veiculo aux = getVeiculoByCodigo(veiculo.getCodigo()).get();
-    if(aux != null)
-    {
-        aux.setModelo(veiculo.getModelo());
-        aux.setValorDiaria(veiculo.getValorDiaria());
+    public Veiculo update(Veiculo veiculo) {
+        Veiculo aux = getVeiculoByCodigo(veiculo.getCodigo()).get();
+        if(aux != null)
+        {
+            aux.setModelo(veiculo.getModelo());
+            aux.setValorDiaria(veiculo.getValorDiaria());
+        }
+        return aux;
     }
-    return aux;
-}
 
 //Remove um veiculo
-public void remove(Veiculo veiculo)
-{
-    veiculos.remove(veiculo);
-}
+    public void remove(Veiculo veiculo)
+    {
+        veiculos.remove(veiculo);
+    }
 }
 
