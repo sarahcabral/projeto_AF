@@ -3,19 +3,20 @@ package com.example.projeto_af.repository;
 import java.util.ArrayList;
 import java.util.Optional;
 import com.example.projeto_af.model.Veiculo;
+import org.springframework.stereotype.Component;
 
-
+@Component
 public class VeiculoRepository {
     
     private long nextcod = 1;
     private ArrayList<Veiculo> veiculos = new ArrayList<Veiculo>();
 
 
-//Retornar todos os veiculos cadastrados
+    //Retornar todos os veiculos cadastrados
     public ArrayList<Veiculo> getAllVeiculos() {
         return veiculos;
     }
-//Retornar o veiculo pelo codigo, se não existir retorna null - empty
+    //Retornar o veiculo pelo codigo, se não existir retorna null - empty
     public Optional <Veiculo> getVeiculoByCodigo(Long codigo) {
         for(Veiculo aux : veiculos)
         {
@@ -25,14 +26,14 @@ public class VeiculoRepository {
         return Optional.empty();
     }
 
-//Salva o veiculo introduzindo o id automaticamente
+    //Salva o veiculo introduzindo o id automaticamente
     public Veiculo salvar(Veiculo veiculo) {
         veiculo.setCodigo(nextcod++);
         veiculos.add(veiculo);
         return veiculo;
     }
 
-//Faz update de um veiculo, possivelmente atualizando seu modelo ou valor diario
+    //Faz update de um veiculo, possivelmente atualizando seu modelo ou valor diario
     public Veiculo update(Veiculo veiculo) {
         Veiculo aux = getVeiculoByCodigo(veiculo.getCodigo()).get();
         if(aux != null)
@@ -43,7 +44,7 @@ public class VeiculoRepository {
         return aux;
     }
 
-//Remove um veiculo
+    //Remove um veiculo
     public void remove(Veiculo veiculo)
     {
         veiculos.remove(veiculo);
