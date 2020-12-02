@@ -6,19 +6,19 @@ import com.example.projeto_af.model.Cliente;
 import com.example.projeto_af.model.Veiculo;
 import com.fasterxml.jackson.annotation.JsonGetter;
 
-public class ReservasDTO {
+public class ReservaDTO {
 
-    private long            codigo;
     private Veiculo         veiculo;
     private Cliente         cliente;
     private LocalDateTime   dataInicio;
     private LocalDateTime   dataEntrega;
 
-    public long getCodigo() {
-        return codigo;
-    }
+    
 
-    public Veiculo getVeiculo() {
+	public ReservaDTO() {
+	}
+
+	public Veiculo getVeiculo() {
         return veiculo;
     }
 
@@ -43,5 +43,7 @@ public class ReservasDTO {
     public void setCliente(Cliente cliente) {
         this.cliente = cliente;
     }
+
+   
     
 }

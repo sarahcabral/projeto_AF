@@ -2,6 +2,8 @@ package com.example.projeto_af.repository;
 
 import java.util.ArrayList;
 import java.util.Optional;
+
+import com.example.projeto_af.dto.VeiculoDTO;
 import com.example.projeto_af.model.Veiculo;
 import org.springframework.stereotype.Component;
 
@@ -48,6 +50,12 @@ public class VeiculoRepository {
     public void remove(Veiculo veiculo)
     {
         veiculos.remove(veiculo);
+    }
+
+    //Tansforma uma VeiculoDTO em Veiculo
+    public Veiculo fromDTO(VeiculoDTO dto) {
+        Veiculo veiculo = new Veiculo(dto.getModelo(),dto.getValorDiaria());
+        return veiculo;
     }
 }
 

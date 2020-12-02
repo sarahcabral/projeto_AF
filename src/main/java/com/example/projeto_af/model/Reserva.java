@@ -13,13 +13,9 @@ public class Reserva {
     private LocalDateTime   dataEntrega;
  //   private ArrayList<Reserva> reservas = new ArrayList<Reserva>();
 
-    public Reserva() {
-    }
-
-    public Reserva(long codigo, Cliente cliente, Veiculo veiculo, LocalDateTime dataInicio, LocalDateTime dataEntrega) {
-        this.codigo = codigo;
-        this.cliente = cliente;
+    public Reserva(Veiculo veiculo, Cliente cliente, LocalDateTime dataInicio, LocalDateTime dataEntrega) {
         this.veiculo = veiculo;
+        this.cliente = cliente;
         this.dataInicio = dataInicio;
         this.dataEntrega = dataEntrega;
     }

@@ -16,7 +16,10 @@ public class ClienteService {
 
     @Autowired
     private ClienteRepository repositorio;
-
+/*
+    @Autowired
+    private ReservaService reservaService;
+*/
     //Pega todos os clientes
     public List<Cliente> getAllClientes() {
         return repositorio.getAllClientes();
@@ -41,19 +44,20 @@ public class ClienteService {
 
     public void removeByCodigo(int codigo) {
         Cliente cliente = getClienteByCodigo(codigo);
+        int a=2;
         if(cliente != null){
-            if( ){
+            if(a==1 ){
                 repositorio.remove(cliente);
             } else {
                 throw new ResponseStatusException(HttpStatus.BAD_REQUEST,"O Cliente possui reservas em andamento - Não é possivel excluir o mesmo");
             }
         }
     }
-
+/*
     public boolean isReservado(Cliente cliente) {
         return repositorio.isReserva(cliente);
     }
-
+*/
 
 
     

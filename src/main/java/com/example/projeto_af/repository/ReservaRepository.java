@@ -2,6 +2,7 @@ package com.example.projeto_af.repository;
 
 import java.util.ArrayList;
 import java.util.Optional;
+
 import com.example.projeto_af.model.Reserva;
 import org.springframework.stereotype.Component;
 
@@ -17,7 +18,7 @@ public class ReservaRepository {
     }
 
     //Retornar a reserva pelo codigo, se não existir retorna null - empty
-    public Optional<Reserva> getClienteByCodigo(long codigo) {
+    public Optional<Reserva> getReservaByCodigo(long codigo) {
         for(Reserva aux : reservas)
         {
             if(aux.getCodigo() == codigo)
@@ -32,6 +33,7 @@ public class ReservaRepository {
         reservas.add(reserva);
         return reserva;
     }
+    
 
     //Verifica se existem reservas em andamento
 	/*public boolean isReserva() {

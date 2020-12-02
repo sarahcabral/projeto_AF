@@ -15,8 +15,7 @@ public class Veiculo {
     public Veiculo() {
     }
 
-    public Veiculo(long codigo, String modelo, double valorDiaria) {
-        this.codigo = codigo;
+    public Veiculo(String modelo, double valorDiaria) {
         this.modelo = modelo;
         this.valorDiaria = valorDiaria;
     }
