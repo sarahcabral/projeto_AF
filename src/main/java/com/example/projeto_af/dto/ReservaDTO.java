@@ -4,7 +4,6 @@ import java.time.LocalDateTime;
 
 import com.example.projeto_af.model.Cliente;
 import com.example.projeto_af.model.Veiculo;
-import com.fasterxml.jackson.annotation.JsonGetter;
 
 public class ReservaDTO {
 
@@ -12,28 +11,14 @@ public class ReservaDTO {
     private Cliente         cliente;
     private LocalDateTime   dataInicio;
     private LocalDateTime   dataEntrega;
+    private double          totalReserva;
 
-    
-
-	public ReservaDTO() {
-	}
-
-	public Veiculo getVeiculo() {
+    public Veiculo getVeiculo() {
         return veiculo;
     }
 
-    public LocalDateTime getDataInicio() {
-        return dataInicio;
-    }
-
-    public LocalDateTime getDataEntrega() {
-        return dataEntrega;
-    }
-
-    @JsonGetter
-    public static double totalReserva(Veiculo veiculo, LocalDateTime inicio, LocalDateTime fim) {
-        double soma = veiculo.getValorDiaria()*(fim.compareTo(inicio));
-        return soma;
+    public void setVeiculo(Veiculo veiculo) {
+        this.veiculo = veiculo;
     }
 
     public Cliente getCliente() {
@@ -44,6 +29,29 @@ public class ReservaDTO {
         this.cliente = cliente;
     }
 
-   
+    public LocalDateTime getDataInicio() {
+        return dataInicio;
+    }
+
+    public void setDataInicio(LocalDateTime dataInicio) {
+        this.dataInicio = dataInicio;
+    }
+
+    public LocalDateTime getDataEntrega() {
+        return dataEntrega;
+    }
+
+    public void setDataEntrega(LocalDateTime dataEntrega) {
+        this.dataEntrega = dataEntrega;
+    }
+
+    public double getTotalReserva() {
+        return totalReserva;
+    }
+
+    public void setTotalReserva(double totalReserva) {
+        this.totalReserva = totalReserva;
+    }
     
+
 }

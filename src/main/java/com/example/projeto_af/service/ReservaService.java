@@ -24,7 +24,6 @@ public class ReservaService {
     //Tansforma uma ReservaDTO em Reserva
     public Reserva fromDTO(ReservaDTO dto) {
         Reserva reserva = new Reserva(dto.getVeiculo(), dto.getCliente(), dto.getDataInicio(), dto.getDataEntrega());
-        reserva.setCliente(dto.getCliente());
         return reserva;
     }
 

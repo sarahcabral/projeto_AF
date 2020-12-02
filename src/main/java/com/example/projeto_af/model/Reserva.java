@@ -1,17 +1,20 @@
 package com.example.projeto_af.model;
 
 import java.time.LocalDateTime;
-//import java.util.ArrayList;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonGetter;
 
 public class Reserva {
     private long            codigo;
     private Cliente         cliente;
     private Veiculo         veiculo;
+
+    @JsonFormat(pattern = "dd/MM/yyyy@HH:mm:ss")
     private LocalDateTime   dataInicio;
+
+    @JsonFormat(pattern = "dd/MM/yyyy")
     private LocalDateTime   dataEntrega;
- //   private ArrayList<Reserva> reservas = new ArrayList<Reserva>();
 
     public Reserva(Veiculo veiculo, Cliente cliente, LocalDateTime dataInicio, LocalDateTime dataEntrega) {
         this.veiculo = veiculo;

@@ -3,6 +3,7 @@ package com.example.projeto_af.service;
 import java.util.List;
 import java.util.Optional;
 
+import com.example.projeto_af.dto.ClienteDTO;
 import com.example.projeto_af.model.Cliente;
 import com.example.projeto_af.repository.ClienteRepository;
 
@@ -42,7 +43,7 @@ public class ClienteService {
         return repositorio.salvar(cliente);
     }
 
-    public void removeByCodigo(int codigo) {
+    public void removeByCodigo(long codigo) {
         Cliente cliente = getClienteByCodigo(codigo);
         int a=2;
         if(cliente != null){
@@ -53,6 +54,14 @@ public class ClienteService {
             }
         }
     }
+
+    //Tansforma uma ClienteDTO em Cliente
+
+    public Cliente fromDTO(ClienteDTO dto){
+        Cliente cliente = new Cliente(dto.getNome(),dto.getEndereco());
+        return cliente;
+    }
+
 /*
     public boolean isReservado(Cliente cliente) {
         return repositorio.isReserva(cliente);

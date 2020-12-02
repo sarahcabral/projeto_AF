@@ -1,8 +1,16 @@
 package com.example.projeto_af.dto;
 
+import javax.validation.constraints.NotBlank;
+import org.hibernate.validator.constraints.Length;
+
 public class ClienteDTO {
 
+    @NotBlank(message = "Nome do Cliente é OBRIGATÓRIO!")
+    @Length(min=4,max = 200, message = "Nome mínimo de 4 e o máximo de 200 caracteres!")
     private String nome;
+    
+    @NotBlank(message = "Nome do Cliente é OBRIGATÓRIO!")
+    @Length(min=4,max = 200, message = "Nome mínimo de 4 e o máximo de 200 caracteres!")
     private String endereco;
 
     public String getNome() {
