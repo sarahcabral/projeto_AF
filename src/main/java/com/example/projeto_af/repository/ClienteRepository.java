@@ -2,6 +2,7 @@ package com.example.projeto_af.repository;
 
 import java.time.LocalDateTime;
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Optional;
 import com.example.projeto_af.model.Cliente;
 import com.example.projeto_af.model.Reserva;
@@ -12,10 +13,10 @@ import org.springframework.stereotype.Component;
 public class ClienteRepository {
     
     private long nextcod = 1;
-    private ArrayList<Cliente> clientes = new ArrayList<Cliente>();
+    private List<Cliente> clientes = new ArrayList<Cliente>();
 
     //Retornar todos os clientes cadastrados
-    public ArrayList<Cliente> getAllClientes() {
+    public List<Cliente> getAllClientes() {
         return clientes;
     }
 

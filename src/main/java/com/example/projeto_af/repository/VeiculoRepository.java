@@ -2,6 +2,7 @@ package com.example.projeto_af.repository;
 
 import java.time.LocalDateTime;
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Optional;
 
 import com.example.projeto_af.dto.VeiculoDTO;
@@ -13,11 +14,11 @@ import org.springframework.stereotype.Component;
 public class VeiculoRepository {
     
     private long nextcod = 1;
-    private ArrayList<Veiculo> veiculos = new ArrayList<Veiculo>();
+    private List<Veiculo> veiculos = new ArrayList<Veiculo>();
 
 
     //Retornar todos os veiculos cadastrados
-    public ArrayList<Veiculo> getAllVeiculos() {
+    public List<Veiculo> getAllVeiculos() {
         return veiculos;
     }
     //Retornar o veiculo pelo codigo, se não existir retorna null - empty

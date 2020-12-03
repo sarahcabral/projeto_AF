@@ -10,10 +10,10 @@ import com.fasterxml.jackson.annotation.JsonFormat;
 public class ReservaDTO {
 
     @NotBlank(message = "Campo OBRIGATÓRIO")
-    @JsonFormat(pattern = "dd/MM/yyyy@HH:mm:ss")
+    @JsonFormat(pattern = "dd/MM/yyyy HH:mm:ss")
     private LocalDateTime   dataInicio;
     @NotBlank(message = "Campo OBRIGATÓRIO")
-    @JsonFormat(pattern = "dd/MM/yyyy")
+    @JsonFormat(pattern = "dd/MM/yyyy HH:mm:ss")
     private LocalDateTime   dataEntrega;
 
     public LocalDateTime getDataInicio() {
@@ -31,6 +31,4 @@ public class ReservaDTO {
     public void setDataEntrega(LocalDateTime dataEntrega) {
         this.dataEntrega = dataEntrega;
     }
-    
-
 }

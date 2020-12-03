@@ -1,5 +1,7 @@
 package com.example.projeto_af.dto;
 
+import javax.validation.constraints.Max;
+import javax.validation.constraints.Min;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 
@@ -16,7 +18,8 @@ public class ClienteDTO {
     private String endereco;
 
     @NotNull(message = "CPF é OBRIGATÓRIO!")
-    private int cpf;
+    @Length(min=10,max = 11, message = "CPF possui deve possuir de 10 a 11 dígitos")
+    private String cpf;
 
     public String getNome() {
         return nome;
@@ -34,11 +37,11 @@ public class ClienteDTO {
         this.endereco = endereco;
     }
 
-    public int getCpf() {
+    public String getCpf() {
         return cpf;
     }
 
-    public void setCpf(int cpf) {
+    public void setCpf(String cpf) {
         this.cpf = cpf;
     }
 

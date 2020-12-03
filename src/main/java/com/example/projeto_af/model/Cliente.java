@@ -8,7 +8,7 @@ public class Cliente {
     private long    codigo;
     private String  nome;
     private String  endereco;
-    private int     cpf;
+    private String  cpf;
 
     @JsonIgnore
     private ArrayList<Reserva> reservas = new ArrayList<Reserva>();
@@ -16,7 +16,7 @@ public class Cliente {
     public Cliente() {
     }
 
-    public Cliente(String nome, String endereco, int cpf) {
+    public Cliente(String nome, String endereco, String cpf) {
         this.nome = nome;
         this.endereco = endereco;
         this.cpf = cpf;
@@ -46,11 +46,11 @@ public class Cliente {
         this.endereco = endereco;
     }
 
-    public int getCpf() {
+    public String getCpf() {
         return cpf;
     }
 
-    public void setCpf(int cpf) {
+    public void setCpf(String cpf) {
         this.cpf = cpf;
     }
 
