@@ -3,6 +3,7 @@ package com.example.projeto_af.service;
 import java.util.List;
 import java.util.Optional;
 
+import com.example.projeto_af.dto.ReservaToVeiDTO;
 import com.example.projeto_af.dto.VeiculoDTO;
 import com.example.projeto_af.model.Veiculo;
 import com.example.projeto_af.repository.VeiculoRepository;
@@ -61,4 +62,5 @@ public class VeiculoService {
     private boolean isReservado(Veiculo veiculo) {
         return repositorio.isReserva(veiculo);
     }
+
 }

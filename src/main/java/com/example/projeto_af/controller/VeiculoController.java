@@ -5,7 +5,7 @@ import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
 
-import com.example.projeto_af.dto.ReservaDTO;
+import com.example.projeto_af.dto.ReservaToVeiDTO;
 import com.example.projeto_af.dto.VeiculoDTO;
 import com.example.projeto_af.model.Veiculo;
 import com.example.projeto_af.service.ReservaService;
@@ -68,8 +68,8 @@ public class VeiculoController {
     }
 
     @GetMapping("/{id}/reservas")
-    public List<ReservaDTO> getReservasCliente(@PathVariable long id) {
+    public List<ReservaToVeiDTO> getReservasCliente(@PathVariable long id) {
         Veiculo veiculo = veiculoServico.getVeiculoByCodigo(id);
-        return reservaServico.toListDTO(veiculo.getReservas());
+        return reservaServico.toListVeiDTO(veiculo.getReservas());
     }
 }

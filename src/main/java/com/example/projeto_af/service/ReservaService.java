@@ -6,6 +6,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 import com.example.projeto_af.dto.ReservaDTO;
+import com.example.projeto_af.dto.ReservaToCliDTO;
+import com.example.projeto_af.dto.ReservaToVeiDTO;
 import com.example.projeto_af.model.Reserva;
 import com.example.projeto_af.repository.ReservaRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -56,10 +58,46 @@ public class ReservaService {
         }
     }
     
-	public List<ReservaDTO> toListDTO(ArrayList<Reserva> reservas) {
+	public ArrayList<ReservaToVeiDTO> toListVeiDTO(ArrayList<Reserva> reservas) {
 
+        ArrayList<ReservaToVeiDTO> dtoList = new ArrayList<ReservaToVeiDTO>();
 
-		return null;
+        for(Reserva reserva: reservas){
+            dtoList.add(toVeiDTO(reserva));
+        }
+
+        return dtoList;
 	}
       
+    public ReservaToVeiDTO toVeiDTO(Reserva reserva) {
+        ReservaToVeiDTO dto = new ReservaToVeiDTO();
+        dto.setCodigo(reserva.getCodigo());
+        dto.setCliente(reserva.getCliente());
+        dto.setDataEntrega(reserva.getDataEntrega());
+        dto.setDataInicio(reserva.getDataInicio());
+
+        return dto;
+    }
+
+    public ArrayList<ReservaToCliDTO> toListCliDTO(ArrayList<Reserva> reservas) {
+
+        ArrayList<ReservaToCliDTO> dtoList = new ArrayList<ReservaToCliDTO>();
+
+        for(Reserva reserva: reservas){
+            dtoList.add(toCliDTO(reserva));
+        }
+        return dtoList;
+	}
+      
+    public ReservaToCliDTO toCliDTO(Reserva reserva) {
+        ReservaToCliDTO dto = new ReservaToCliDTO();
+        dto.setCodigo(reserva.getCodigo());
+        dto.setVeiculo(reserva.getVeiculo());
+        dto.setDataEntrega(reserva.getDataEntrega());
+        dto.setDataInicio(reserva.getDataInicio());
+
+        return dto;
+    }
+
+    
 }

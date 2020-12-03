@@ -7,6 +7,7 @@ import javax.validation.Valid;
 
 import com.example.projeto_af.dto.ClienteDTO;
 import com.example.projeto_af.dto.ReservaDTO;
+import com.example.projeto_af.dto.ReservaToCliDTO;
 import com.example.projeto_af.model.Cliente;
 import com.example.projeto_af.model.Reserva;
 import com.example.projeto_af.service.ClienteService;
@@ -71,9 +72,9 @@ public class ClienteController {
     }
 
     @GetMapping("/{id}/reservas")
-    public List<ReservaDTO> getReservasCliente(@PathVariable long id) {
+    public List<ReservaToCliDTO> getReservasCliente(@PathVariable long id) {
         Cliente cli = clienteServico.getClienteByCodigo(id);
-        return reservaServico.toListDTO(cli.getReservas());
+        return reservaServico.toListCliDTO(cli.getReservas());
     }
 
     @PostMapping("/{id_cliente}/veiculos/{id_veiculo}")
