@@ -32,6 +32,12 @@ public class ClienteService {
         return op.orElseThrow(()  -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Cliente não cadastrado"));
     }
 
+    //Tansforma uma ClienteDTO em Cliente
+    public Cliente fromDTO(ClienteDTO dto){
+        Cliente cliente = new Cliente(dto.getNome(),dto.getEndereco());
+        return cliente;
+    }
+
     //Atualiza os dados do cliente
     public Cliente update(Cliente cliente) {
         getClienteByCodigo(cliente.getCodigo());
@@ -45,29 +51,19 @@ public class ClienteService {
 
     public void removeByCodigo(long codigo) {
         Cliente cliente = getClienteByCodigo(codigo);
-        int a=2;
         if(cliente != null){
-            if(a==1 ){
+            if(isReservado(cliente) == false ){
                 repositorio.remove(cliente);
-            } else {
-                throw new ResponseStatusException(HttpStatus.BAD_REQUEST,"O Cliente possui reservas em andamento - Não é possivel excluir o mesmo");
-            }
+            } 
+        }else{
+            throw new ResponseStatusException(HttpStatus.BAD_REQUEST,"O Cliente possui reservas em andamento - Não é possivel excluir o mesmo");
         }
     }
 
-    //Tansforma uma ClienteDTO em Cliente
-
-    public Cliente fromDTO(ClienteDTO dto){
-        Cliente cliente = new Cliente(dto.getNome(),dto.getEndereco());
-        return cliente;
-    }
-
-/*
+    
     public boolean isReservado(Cliente cliente) {
         return repositorio.isReserva(cliente);
     }
-*/
-
 
     
 }

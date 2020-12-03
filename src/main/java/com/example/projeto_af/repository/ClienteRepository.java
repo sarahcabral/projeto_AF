@@ -50,6 +50,20 @@ public class ClienteRepository {
         clientes.remove(cliente);
     }
 
+	public boolean isReserva(Cliente cliente) {
+		return false;
+	}
+
+    //Verifica se existem reservas em andamento
+	/*public boolean isReserva() {
+        
+        for(Cliente c: clientes) {
+
+            if(cliente.getReservas())
+        }
+        
+        return false;
+    }*/
     
 }
 

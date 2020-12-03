@@ -2,6 +2,7 @@ package com.example.projeto_af.service;
 
 import java.time.DayOfWeek;
 import java.time.LocalDateTime;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -21,6 +22,13 @@ public class ReservaService {
     @Autowired
     private ReservaRepository repositorio;
 
+    @Autowired
+    private ClienteService clienteServico;
+
+    @Autowired
+    private VeiculoService veiculoServico;
+    
+
     //Tansforma uma ReservaDTO em Reserva
     public Reserva fromDTO(ReservaDTO dto) {
         Reserva reserva = new Reserva(dto.getVeiculo(), dto.getCliente(), dto.getDataInicio(), dto.getDataEntrega());
@@ -37,15 +45,16 @@ public class ReservaService {
         return op.orElseThrow( ()  -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Reserva não existe"));
 	}
     
-    public Reserva salvar(Reserva reserva) {
-        if(!(   reserva.getDataInicio().isAfter(LocalDateTime.now())) 
-                && (reserva.getDataInicio().getDayOfWeek().equals(DayOfWeek.SUNDAY)) 
-                && (reserva.getDataEntrega().getDayOfWeek().equals(DayOfWeek.SUNDAY))
+    public Reserva salvar(long id_cliente, long id_veiculo, Reserva reserva) {
+        if  (     !(reserva.getDataInicio().isAfter(LocalDateTime.now())) && 
+                (reserva.getDataInicio().getDayOfWeek().equals(DayOfWeek.SUNDAY)) && 
+                (reserva.getDataEntrega().getDayOfWeek().equals(DayOfWeek.SUNDAY))
             )
         {
             throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Reserva não pode ser processada");
-        }
-        else {
+        } else {
+            clienteServico.getClienteByCodigo(id_cliente);
+            veiculoServico.getVeiculoByCodigo(id_veiculo);
             return repositorio.salvar(reserva);
         }
     }
@@ -53,5 +62,9 @@ public class ReservaService {
     public boolean isReservado(Cliente cli) {
         return false;
     }
+
+	public List<ReservaDTO> toListDTO(ArrayList<Reserva> reservas) {
+		return null;
+	}
       
 }

@@ -24,14 +24,14 @@ public class VeiculoService {
     }
 
     //Pega um veiculo pelo código
-    public Veiculo getClienteByCodigo(long codigo) {
+    public Veiculo getVeiculoByCodigo(long codigo) {
         Optional <Veiculo> op = repositorio.getVeiculoByCodigo(codigo);
         return op.orElseThrow(()  -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Veiculo não cadastrado"));
     }
 
     //Atualiza os dados do veiculo
     public Veiculo update(Veiculo veiculo) {
-        getClienteByCodigo(veiculo.getCodigo());
+        getVeiculoByCodigo(veiculo.getCodigo());
         return repositorio.update(veiculo);
     }
 
@@ -45,6 +45,9 @@ public class VeiculoService {
         Veiculo veiculo = new Veiculo(dto.getModelo(), dto.getValorDiaria());
         return veiculo;
     }
+
+	public void removeByCodigo(long id) {
+	}
 
     
 }

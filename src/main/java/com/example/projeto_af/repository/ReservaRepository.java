@@ -32,18 +32,5 @@ public class ReservaRepository {
         reserva.setCodigo(nextcod++);
         reservas.add(reserva);
         return reserva;
-    }
-    
-
-    //Verifica se existem reservas em andamento
-	/*public boolean isReserva() {
-        
-        for(Cliente c: clientes) {
-
-            if(cliente.getReservas())
-        }
-        
-        return false;
-    }*/
-    
+    }    
 }
