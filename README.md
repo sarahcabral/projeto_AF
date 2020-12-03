@@ -36,6 +36,8 @@ Uma aplicação do tipo API Web RestFul que permita gerenciar reservas de veícu
   6. O total da reserva deverá ser calculado.
   
   7. Um veículo pode ser reservado várias vezes, porém somente em períodos/datas diferentes.
+  
+  8. O caminho para criar uma reserva é: POST de clientes/{id-cliente}/veiculos/{id-veiculo}
  
     ~Listar uma reserva pelo número.
 
