@@ -1,8 +1,11 @@
 package com.example.projeto_af.repository;
 
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.Optional;
 import com.example.projeto_af.model.Cliente;
+import com.example.projeto_af.model.Reserva;
+
 import org.springframework.stereotype.Component;
 
 @Component
@@ -50,21 +53,14 @@ public class ClienteRepository {
         clientes.remove(cliente);
     }
 
+    //Verifica se existem reservas em andamento - TRUE É RESERVADO - FALSE É LIVRE PARA APAGAR
 	public boolean isReserva(Cliente cliente) {
-		return false;
-	}
-
-    //Verifica se existem reservas em andamento
-	/*public boolean isReserva() {
-        
-        for(Cliente c: clientes) {
-
-            if(cliente.getReservas())
+        for(Reserva r : cliente.getReservas()) {
+            if(r.getDataEntrega().isAfter(LocalDateTime.now()) == true)
+                return true;
         }
-        
         return false;
-    }*/
-    
+    }
 }
 
 

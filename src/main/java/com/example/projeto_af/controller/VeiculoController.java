@@ -10,7 +10,6 @@ import com.example.projeto_af.dto.VeiculoDTO;
 import com.example.projeto_af.model.Veiculo;
 import com.example.projeto_af.service.ReservaService;
 import com.example.projeto_af.service.VeiculoService;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;

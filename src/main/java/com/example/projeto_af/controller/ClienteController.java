@@ -72,17 +72,16 @@ public class ClienteController {
 
     @GetMapping("/{id}/reservas")
     public List<ReservaDTO> getReservasCliente(@PathVariable long id) {
-        //Cliente cli = clienteServico.getClienteByCodigo(id);
-        return null;//reservaServico.toListDTO(cli.getPedidos());
+        Cliente cli = clienteServico.getClienteByCodigo(id);
+        return reservaServico.toListDTO(cli.getReservas());
     }
 
     @PostMapping("/{id_cliente}/veiculos/{id_veiculo}")
-    public ResponseEntity<Void> salvar(@PathVariable long id_cliente, @PathVariable long id_veiculo, @RequestBody Reserva reserva, HttpServletRequest request,
+    public ResponseEntity<Void> salvar(@PathVariable long id_cliente, @PathVariable long id_veiculo, @RequestBody ReservaDTO reservaDTO, HttpServletRequest request,
             UriComponentsBuilder builder) {
 
-        reserva = reservaServico.salvar(id_cliente, id_veiculo, reserva);
+        Reserva reserva = reservaServico.salvar(id_cliente, id_veiculo, reservaServico.fromDTO(reservaDTO));
         UriComponents uriComponents = builder.path(request.getRequestURI() + "/" + reserva.getCodigo()).build();
         return ResponseEntity.created(uriComponents.toUri()).build();
     }
-    
 }

@@ -16,9 +16,7 @@ public class Reserva {
     @JsonFormat(pattern = "dd/MM/yyyy")
     private LocalDateTime   dataEntrega;
 
-    public Reserva(Veiculo veiculo, Cliente cliente, LocalDateTime dataInicio, LocalDateTime dataEntrega) {
-        this.veiculo = veiculo;
-        this.cliente = cliente;
+    public Reserva(LocalDateTime dataInicio, LocalDateTime dataEntrega) {
         this.dataInicio = dataInicio;
         this.dataEntrega = dataEntrega;
     }

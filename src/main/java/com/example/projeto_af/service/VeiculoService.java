@@ -6,7 +6,6 @@ import java.util.Optional;
 import com.example.projeto_af.dto.VeiculoDTO;
 import com.example.projeto_af.model.Veiculo;
 import com.example.projeto_af.repository.VeiculoRepository;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
@@ -46,8 +45,20 @@ public class VeiculoService {
         return veiculo;
     }
 
-	public void removeByCodigo(long id) {
-	}
-
+    //Remove um veiculo através de seu codigo
+    public void removeByCodigo(long codigo) {
+        Veiculo veiculo = getVeiculoByCodigo(codigo);
+        if(veiculo != null){                        //Verifica se o veiculo existe
+            if(isReservado(veiculo) == false ){     //Verifica se está reservado
+                repositorio.remove(veiculo);
+            } 
+        }else{
+            throw new ResponseStatusException(HttpStatus.BAD_REQUEST,"O Cliente possui reservas em andamento - Não é possivel excluir o mesmo");
+        }
+    }
     
+    //Verifica se o veiculo está reservado
+    private boolean isReservado(Veiculo veiculo) {
+        return repositorio.isReserva(veiculo);
+    }
 }

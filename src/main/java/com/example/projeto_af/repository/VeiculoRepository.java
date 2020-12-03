@@ -1,9 +1,11 @@
 package com.example.projeto_af.repository;
 
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.Optional;
 
 import com.example.projeto_af.dto.VeiculoDTO;
+import com.example.projeto_af.model.Reserva;
 import com.example.projeto_af.model.Veiculo;
 import org.springframework.stereotype.Component;
 
@@ -57,5 +59,14 @@ public class VeiculoRepository {
         Veiculo veiculo = new Veiculo(dto.getModelo(),dto.getValorDiaria());
         return veiculo;
     }
+
+    //Verifica se existem reservas em andamento - TRUE É RESERVADO - FALSE É LIVRE PARA APAGAR
+	public boolean isReserva(Veiculo veiculo) {
+		for(Reserva r : veiculo.getReservas()) {
+            if(r.getDataEntrega().isAfter(LocalDateTime.now()) == true)
+                return true;
+        }
+        return false;
+	}
 }
 
