@@ -34,7 +34,7 @@ public class ClienteService {
 
     //Tansforma uma ClienteDTO em Cliente
     public Cliente fromDTO(ClienteDTO dto){
-        Cliente cliente = new Cliente(dto.getNome(),dto.getEndereco());
+        Cliente cliente = new Cliente(dto.getNome(),dto.getEndereco(), dto.getCpf());
         return cliente;
     }
 

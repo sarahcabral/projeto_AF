@@ -8,10 +8,14 @@ public class ClienteDTO {
     @NotBlank(message = "Nome do Cliente é OBRIGATÓRIO!")
     @Length(min=4,max = 200, message = "Nome mínimo de 4 e o máximo de 200 caracteres!")
     private String nome;
-    
+
     @NotBlank(message = "Nome do Cliente é OBRIGATÓRIO!")
     @Length(min=4,max = 200, message = "Nome mínimo de 4 e o máximo de 200 caracteres!")
     private String endereco;
+
+    @NotBlank(message = "CPF é OBRIGATÓRIO!")
+    @Length(min=10,max = 14, message = "CPF mínimo de 4 e o máximo de 14 caracteres!")
+    private int cpf;
 
     public String getNome() {
         return nome;
@@ -28,4 +32,13 @@ public class ClienteDTO {
     public void setEndereco(String endereco) {
         this.endereco = endereco;
     }
+
+    public int getCpf() {
+        return cpf;
+    }
+
+    public void setCpf(int cpf) {
+        this.cpf = cpf;
+    }
+
 }
