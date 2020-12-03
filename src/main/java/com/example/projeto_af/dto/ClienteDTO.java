@@ -1,6 +1,8 @@
 package com.example.projeto_af.dto;
 
 import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
+
 import org.hibernate.validator.constraints.Length;
 
 public class ClienteDTO {
@@ -13,8 +15,7 @@ public class ClienteDTO {
     @Length(min=4,max = 200, message = "Nome mínimo de 4 e o máximo de 200 caracteres!")
     private String endereco;
 
-    @NotBlank(message = "CPF é OBRIGATÓRIO!")
-    @Length(min=10,max = 14, message = "CPF mínimo de 4 e o máximo de 14 caracteres!")
+    @NotNull(message = "CPF é OBRIGATÓRIO!")
     private int cpf;
 
     public String getNome() {

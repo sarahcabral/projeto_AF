@@ -2,18 +2,13 @@ package com.example.projeto_af.model;
 
 import java.time.LocalDateTime;
 
-import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonGetter;
 
 public class Reserva {
     private long            codigo;
     private Cliente         cliente;
     private Veiculo         veiculo;
-
-    @JsonFormat(pattern = "dd/MM/yyyy@HH:mm:ss")
     private LocalDateTime   dataInicio;
-
-    @JsonFormat(pattern = "dd/MM/yyyy")
     private LocalDateTime   dataEntrega;
 
     public Reserva(LocalDateTime dataInicio, LocalDateTime dataEntrega) {
@@ -72,30 +67,9 @@ public class Reserva {
         return "Reserva [cliente=" + cliente + ", codigo=" + codigo + ", dataEntrega=" + dataEntrega + ", dataInicio="
                 + dataInicio + ", veiculo=" + veiculo + "]";
     }
-/* Json
+/*
     "dataPedido": "20/11/2020@10:00:01",
     "dataEntrega": "20/12/2020",
-{
-    "descricao": "Pedido 2",
-     "dataPedido": "20/11/2020@10:00:01",
-    "dataEntrega": "20/12/2020",
-    "itens" : [
-            {
-                 "numero": 1,
-                 "quantidade": 2,
-                 "produto": "produto 1",
-                 "precoUnitario": 100.50
-            },
-            {
-                 "numero": 2,
-                 "quantidade": 2,
-                 "produto": "produto 2",
-                 "precoUnitario": 200.50
-            }
-
-    ]
-    
-}
 */
 
 
